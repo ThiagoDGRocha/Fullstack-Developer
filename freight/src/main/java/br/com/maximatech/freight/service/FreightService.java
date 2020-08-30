@@ -7,8 +7,9 @@ import java.text.DecimalFormat;
 @Service
 public class FreightService {
 
-    public String getFreight(Integer amount) {
+    public Double getFreight(Integer amount) {
         int min = 5, max = 10;
-        return new DecimalFormat("#.00").format((Math.random() * (max - min + 1) + min) * amount);
+        return Double.valueOf(
+                new DecimalFormat("#.00").format((Math.random() * (max - min + 1) + min) * amount));
     }
 }
