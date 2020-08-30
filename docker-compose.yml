@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  requests-api:
+    build: request
+    environment:
+        SPRING_DATASOURCE_URL: jdbc:postgresql://requests-db:5432/requestdb
+        SPRING_DATASOURCE_USERNAME: postgres
+        SPRING_DATASOURCE_PASSWORD: password
+        SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+    depends_on:
+      - requests-db
+    networks:
+      - maximatech-compose-network
+    
+  freight-api:
+    build: freight
+    environment:
+        SERVER_PORT: 8082
+    ports:
+      - "8082:8082"
+    networks:
+      - maximatech-compose-network
+    
+  requests-db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=requestdb
+    volumes:
+      - /request/requestdb_data:/var/lib/postgresql/data
+    networks:
+      - maximatech-compose-network
+      
+networks: 
+  maximatech-compose-network:
+    driver: bridge

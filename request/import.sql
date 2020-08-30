@@ -1,0 +1,1 @@
+INSERT INTO request_model (id, amount, total_amount, value_shipping) VALUES (1, 12134.45, 4, 34.56);
