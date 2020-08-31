@@ -1,5 +1,12 @@
 version: '3.7'
 services:
+  requests-ui:
+    build: request-ui
+    ports:
+      - "4200:4200"
+    networks:
+      - maximatech-compose-network
+      
   requests-api:
     build: request
     environment:
