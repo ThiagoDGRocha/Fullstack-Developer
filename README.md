@@ -1,3 +1,26 @@
+## Requistos para execução do projeto
+
+- Docker
+- Java 8
+
+## Iniciar aplicação
+
+Executar os seguintes comandos
+
+- "docker-compose build"
+- "docker-compose up"
+
+## Domínios disponibilizados
+
+http://localhost:8082/freight/{quantideDeProdutos}
+
+curl -s -X POST http://localhost:8081/request -H "Content-Type:application/json" -d {\"amount\":\"12134.45\",\"totalAmount\":\"4\",\"valueShipping\":\"34.56\"}
+
+http://localhost:8081/request?page=0&size=10
+
+
+
+
 ## Fullstack - Developer 
 
 Parabéns, você passou para a segunda fase do processo seletivo da MáximaTech para desenvolvedor Fullstack (Java + Angular).
